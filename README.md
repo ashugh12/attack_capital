@@ -58,6 +58,14 @@ assignment/
    ```bash
    cp env.example .env.local
    # Edit .env.local to add LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET, OPENAI_API_KEY, DEEPGRAM_API_KEY, CARTESIA_API_KEY
+
+3. Install dependencies and start the development server:
+   ```bash
+   pip install uv
+   uv sync
+   uv run src/agent.py download-files
+   uv run src/agent.py start
+   ```
    ```
 
 ### Frontend
