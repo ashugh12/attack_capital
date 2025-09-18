@@ -1,0 +1,6 @@
+pyproject.toml
+src/minimal_voice_assistant.egg-info/PKG-INFO
+src/minimal_voice_assistant.egg-info/SOURCES.txt
+src/minimal_voice_assistant.egg-info/dependency_links.txt
+src/minimal_voice_assistant.egg-info/requires.txt
+src/minimal_voice_assistant.egg-info/top_level.txt
