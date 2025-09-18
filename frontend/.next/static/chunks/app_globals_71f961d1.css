@@ -1,0 +1,137 @@
+/* [project]/app/globals.css [app-client] (css) */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  max-width: 100vw;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  color: #000;
+  background: #fff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    --lightningcss-light: ;
+    --lightningcss-dark: initial;
+    color-scheme: dark;
+  }
+
+  body {
+    color: #fff;
+    background: #000;
+  }
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.btn {
+  color: #fff;
+  cursor: pointer;
+  background: #0070f3;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  transition: background .2s;
+}
+
+.btn:hover {
+  background: #0051a2;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  background: #ccc;
+}
+
+.btn-secondary {
+  background: #666;
+}
+
+.btn-secondary:hover {
+  background: #555;
+}
+
+.input {
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 12px;
+  font-size: 16px;
+}
+
+.input:focus {
+  border-color: #0070f3;
+  outline: none;
+}
+
+.chat-container {
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  height: 400px;
+  margin-bottom: 20px;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.message {
+  border-radius: 8px;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+}
+
+.message.user {
+  background: #e3f2fd;
+  margin-left: 20px;
+}
+
+.message.assistant {
+  background: #f5f5f5;
+  margin-right: 20px;
+}
+
+.chat-input {
+  gap: 12px;
+  display: flex;
+}
+
+.status {
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 8px 12px;
+}
+
+.status.connected {
+  color: #2e7d32;
+  background: #e8f5e8;
+}
+
+.status.disconnected {
+  color: #c62828;
+  background: #ffebee;
+}
+
+.status.connecting {
+  color: #f57c00;
+  background: #fff3e0;
+}
+
+/*# sourceMappingURL=app_globals_71f961d1.css.map*/

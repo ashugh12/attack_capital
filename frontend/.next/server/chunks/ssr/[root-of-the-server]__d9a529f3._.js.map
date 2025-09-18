@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 3, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
+    {"offset": {"line": 11, "column": 0}, "map": {"version":3,"sources":["file:///Users/ashutosh/Attack%20Capital/assignment/frontend/app/page.tsx"],"sourcesContent":["import { headers } from 'next/headers';\nimport { App } from '@/components/app';\nimport { getAppConfig } from '@/lib/utils';\n\nexport default async function Page() {\n  const hdrs = await headers();\n  const appConfig = await getAppConfig(hdrs);\n\n  return <App appConfig={appConfig} />;\n}\n"],"names":[],"mappings":";;;;;AAAA;;;;;;;;;;;;;;;AAIe,eAAe;IAC5B,MAAM,OAAO,MAAM,IAAA,0IAAO;IAC1B,MAAM,YAAY,MAAM,aAAa;IAErC,qBAAO,8OAAC;QAAI,WAAW;;;;;;AACzB","debugId":null}}]
+}

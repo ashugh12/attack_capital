@@ -1,0 +1,3 @@
+- [x] Update button component fonts, sizes, alignments, and visual styles in assignment/frontend/components/ui/button.tsx
+- [x] Fix typo in secondary variant
+- [x] Test the changes by running the frontend
