@@ -1,107 +1,104 @@
 # Minimal Voice Assistant Assignment
 
-This is a minimal implementation of a voice AI assistant with the same functionality as the original but with a simplified UI.
+This project is a minimal implementation of a voice AI assistant, designed to provide core voice and text chat functionalities with a simplified UI and backend architecture.
 
-## Features
-
-- **Text Chat**: Type messages and receive text responses
-- **Voice Chat**: Speak to the assistant and receive audio responses
-- **Same Backend**: Uses the exact same LiveKit agent backend
-- **Minimal UI**: Simple connection screen and chat dialog
-- **Docker Support**: Backend runs in Docker container
-
-## Architecture
+## Project Structure
 
 ```
 assignment/
-├── backend/           # Python LiveKit agent
-│   ├── src/agent.py  # Main agent code (same as original)
-│   ├── Dockerfile    # Docker configuration
-│   └── pyproject.toml
-└── frontend/         # Next.js minimal UI
-    ├── app/          # Next.js app router
-    └── package.json
+├── backend/                 # Python backend for LiveKit agent
+│   ├── src/                 # Source code for the agent
+│   │   └── agent.py         # Main agent implementation
+│   ├── Dockerfile           # Docker configuration for backend
+│   ├── pyproject.toml       # Python project configuration
+│   └── minimal_voice_assistant.egg-info/  # Python package metadata
+├── frontend/                # Next.js frontend application
+│   ├── app/                 # Next.js app router and pages
+│   │   ├── api/             # API routes
+│   │   ├── globals.css      # Global styles
+│   │   ├── layout.tsx       # Root layout component
+│   │   └── page.tsx         # Main page component
+│   ├── components/          # React components (UI, livekit, etc.)
+│   ├── hooks/               # React hooks
+│   ├── lib/                 # Utility functions and types
+│   ├── public/              # Static assets (fonts, images)
+│   ├── package.json         # Frontend dependencies and scripts
+│   ├── tsconfig.json        # TypeScript configuration
+│   └── next.config.js       # Next.js configuration
+├── setup.sh                 # Setup script for environment
+├── start-backend.sh         # Script to start backend server
+├── start-frontend.sh        # Script to start frontend server
+└── README.md                # This file
 ```
 
-## Quick Start
+## Features
 
-### 1. Backend Setup
+- Text and voice chat with AI assistant
+- Real-time communication using LiveKit
+- Simplified UI with minimal components
+- Docker support for backend containerization
+- Environment configuration via `.env` files
 
-```bash
-cd backend
+## Prerequisites
 
-# Copy environment file
-cp env.example .env.local
+- Docker (for backend container)
+- Node.js and npm (for frontend)
+- API keys for LiveKit, OpenAI, Deepgram, and Cartesia
 
-# Edit .env.local with your API keys:
-# - LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET
-# - OPENAI_API_KEY, DEEPGRAM_API_KEY, CARTESIA_API_KEY
+## Setup Instructions
 
-# Build and run with Docker
-docker build -t minimal-voice-assistant .
-docker run --env-file .env.local minimal-voice-assistant
-```
+### Backend
 
-### 2. Frontend Setup
+1. Navigate to the backend directory:
+   ```bash
+   cd assignment/backend
+   ```
 
-```bash
-cd frontend
+2. Copy the example environment file and update with your API keys:
+   ```bash
+   cp env.example .env.local
+   # Edit .env.local to add LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET, OPENAI_API_KEY, DEEPGRAM_API_KEY, CARTESIA_API_KEY
+   ```
 
-# Copy environment file
-cp env.example .env.local
+### Frontend
 
-# Edit .env.local with your LiveKit credentials:
-# - LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET
+1. Navigate to the frontend directory:
+   ```bash
+   cd assignment/frontend
+   ```
 
-# Install and run
-npm install
-npm run dev
-```
+2. Copy the example environment file and update with your LiveKit credentials:
+   ```bash
+   cp env.example .env.local
+   # Edit .env.local to add LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET
+   ```
 
-### 3. Usage
+3. Install dependencies and start the development server:
+   ```bash
+   npm install
+   npm run dev
+   ```
 
-1. Open http://localhost:3000
-2. Click "Connect" to join the voice assistant
-3. Type messages or speak to the assistant
-4. Receive text responses for typed messages
-5. Receive audio + text responses for spoken messages
+4. Open your browser and go to [http://localhost:3000](http://localhost:3000)
 
-## Key Differences from Original
+## Usage
 
-- **Simplified UI**: Single page with connection button and chat dialog
-- **Minimal Components**: Removed complex control bars and device selectors
-- **Same Functionality**: Identical backend agent with weather lookup and voice features
-- **Same API Keys**: Uses the same environment variables and API configurations
+- Click "Connect" to join the voice assistant session.
+- Use the text input to chat or speak to the assistant.
+- Receive text and audio responses from the assistant.
 
-## API Keys Required
+## Scripts
 
-- **LiveKit**: For real-time communication
-- **OpenAI**: For GPT-4o-mini LLM
-- **Deepgram**: For speech-to-text
-- **Cartesia**: For text-to-speech
+- `./setup.sh` - Setup environment and dependencies
+- `./start-backend.sh` - Start backend server
+- `./start-frontend.sh` - Start frontend server
 
-## Docker Commands
+## Notes
 
-```bash
-# Build the backend image
-docker build -t minimal-voice-assistant ./backend
+- Ensure all required API keys are set in the respective `.env.local` files.
+- The frontend uses Next.js with Tailwind CSS for styling.
+- The backend is a Python LiveKit agent running inside a Docker container.
 
-# Run the backend container
-docker run --env-file ./backend/.env.local minimal-voice-assistant
+## License
 
-# Stop the container
-docker stop $(docker ps -q --filter ancestor=minimal-voice-assistant)
-```
-
-## Easy Setup Scripts
-
-```bash
-# Complete setup (run once)
-./setup.sh
-
-# Start backend (Terminal 1)
-./start-backend.sh
-
-# Start frontend (Terminal 2)
-./start-frontend.sh
-```
+This project is licensed under the MIT License.
